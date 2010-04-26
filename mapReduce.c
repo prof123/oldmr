@@ -101,7 +101,7 @@ void MAP (char* input_split,void (*mapfunc)(char**, KV_t*) , void (*reducefunc)(
   		
     (*mapfunc)(&input, retkeyvpair); /*Also increments input..*/ 
     retkeyvpair->fileid = j ;   
-     	
+    printf("MAP [%d] <%s,%s>\n",rank,retkeyvpair->key, retkeyvpair->value);	
     HASH(retkeyvpair,htable, R); /*effectively groups by key*/
 
   }
